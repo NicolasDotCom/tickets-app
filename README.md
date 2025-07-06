@@ -143,4 +143,4 @@ Registra un usuario cualquiera
 
 ## ⚠️ Licencia
 
-Este proyecto es exclusivo para uso **TESLTDA**.
+Este proyecto es exclusivo para uso **TESLTDA**...
