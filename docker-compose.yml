@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - DB_HOST=db
+      - DB_DATABASE=tickets_app
+      - DB_USERNAME=tickets_user
+      - DB_PASSWORD=tickets_password
+    depends_on:
+      - db
+    volumes:
+      - ./storage:/var/www/html/storage
+    networks:
+      - tickets_network
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: tickets_app
+      MYSQL_USER: tickets_user
+      MYSQL_PASSWORD: tickets_password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - tickets_network
+    ports:
+      - "3307:3306"
+
+volumes:
+  db_data:
+
+networks:
+  tickets_network:
+    driver: bridge
