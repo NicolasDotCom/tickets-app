@@ -37,7 +37,6 @@ README.md
 CHANGELOG.md
 COOLIFY.md
 
-# Archivos de Docker
+# Archivos de Docker (excluir compose pero mantener config)
 Dockerfile
 docker-compose.yml
-docker
